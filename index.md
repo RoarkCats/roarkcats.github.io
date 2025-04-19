@@ -1,5 +1,5 @@
 ---
-title: "Title Here"
+title: "Title Gone!"
 ---
 
 This is a Quarto website.
