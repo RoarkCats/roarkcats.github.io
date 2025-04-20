@@ -15,7 +15,7 @@ format:
     theme:
       # See: https://quarto.org/docs/output-formats/html-themes.html
       light: litera
-      dark: litera
+      dark: [litera, theme_dark.scss]
     css: styles.css
     toc: true
 
