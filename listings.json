@@ -1,10 +1,10 @@
 [
   {
-    "listing": "/blog/index.html",
+    "listing": "/posts/index.html",
     "items": [
-      "/blog/markdown/index.html",
-      "/blog/qmd/index.html",
-      "/blog/quarto/index.html"
+      "/posts/markdown/index.html",
+      "/posts/qmd/index.html",
+      "/posts/quarto/index.html"
     ]
   }
 ]
