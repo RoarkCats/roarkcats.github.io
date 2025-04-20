@@ -1,6 +1,7 @@
 ---
 title: "Home"
 ---
+<br>
 
 ## **Welcome to Crakt**
 **Crakt** is a small site by [RoarkCats](https://github.com/RoarkCats) hosting various miscellaneous items and posts...
@@ -14,4 +15,4 @@ but should definitely check out!
 - ⚙️ [Modrinth Datapacks](https://modrinth.com/user/RoarkCats) (wip!)
 - 🔥 [CurseForge Projects](https://www.curseforge.com/members/roarkcats/projects) (modpacks!)
 - ▶️ [YouTube Videos](https://www.youtube.com/c/RoarkCats) (~0.5 vid / yr!)
-- **✗** [Twitter X Posts](https://x.com/roark_cats) (reach out!)
+- ✖️ [Twitter X Posts](https://x.com/roark_cats) (reach out!)
