@@ -1,5 +1,5 @@
 ---
-title: "Blog"
+title: "Posts"
 listing:
   contents:
     - "*/index.*md"
