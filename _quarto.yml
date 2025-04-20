@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "Title Here" # where used?
+  title: "Title Here"
   navbar:
     left:
       - href: index.md
@@ -14,8 +14,8 @@ format:
   html:
     theme:
       # See: https://quarto.org/docs/output-formats/html-themes.html
-      light: litera
-      dark: [litera, theme_dark.scss]
+      light: default
+      dark: cyborg
     css: styles.css
     toc: true
 
