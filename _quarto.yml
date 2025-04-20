@@ -4,6 +4,8 @@ project:
 website:
   title: "Crakt"
   navbar:
+    logo: https://avatars.githubusercontent.com/u/30079974?s=48&v=4
+    logo-href: https://github.com/RoarkCats
     left:
       - href: index.md
         text: Home
