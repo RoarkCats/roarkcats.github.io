@@ -5,12 +5,12 @@ title: "Home"
 
 ## **Welcome to Crakt**
 **Crakt** is a small site by [RoarkCats](https://github.com/RoarkCats) hosting various miscellaneous items and posts...
-<p style="text-align:right;"><em>blame Jeffery</em></p>
+<p style="text-align:right;"><em>blame Jeffrey</em></p>
 
 ### My Things You Won't Find Here
 but should definitely check out!
 
-- 🐈‍⬛ [GitHub Repos](https://github.com/RoarkCats/repositories) (new!)
+- 🐈‍ [GitHub Repos](https://github.com/RoarkCats/repositories) (new!)
 - 🦴 [ZipCode Datapacks & Community](http://discord.gg/FfkrUPf) (♡)
 - ⚙️ [Modrinth Datapacks](https://modrinth.com/user/RoarkCats) (wip!)
 - 🔥 [CurseForge Projects](https://www.curseforge.com/members/roarkcats/projects) (modpacks!)
