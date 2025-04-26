@@ -2,7 +2,8 @@
   {
     "listing": "/posts/index.html",
     "items": [
-      "/posts/markdown/index.html",
+      "/posts/inject0/index.html",
+      "/posts/inject1/index.html",
       "/posts/qmd/index.html",
       "/posts/quarto/index.html"
     ]

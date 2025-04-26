@@ -11,7 +11,14 @@
     "href": "posts/index.html",
     "title": "Posts",
     "section": "",
-    "text": "Markdown formatting\n\n\n\n\n\n\nfilter2\n\n\nfilter3\n\n\n\ndescription\n\n\n\n\n\nFeb 23, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n.qmd and python jupyter blocks\n\n\n\n\n\n\nfilter1\n\n\nfilter2\n\n\n\ndescription\n\n\n\n\n\nFeb 20, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAbout Quarto\n\n\n\n\n\n\nfilter1\n\n\nfilter2\n\n\n\ndescription\n\n\n\n\n\nFeb 20, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "Inject 1\n\n\n\n\n\n\ninject\n\n\nincus\n\n\nexperiment\n\n\n\nIncus usage\n\n\n\n\n\nApr 26, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nInject 0\n\n\n\n\n\n\ninject\n\n\nminecraft\n\n\npodman\n\n\n\nPodman public modded minecraft server\n\n\n\n\n\nApr 26, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n.qmd and python jupyter blocks\n\n\n\n\n\n\nfilter1\n\n\nfilter2\n\n\n\ndescription\n\n\n\n\n\nFeb 20, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAbout Quarto\n\n\n\n\n\n\nfilter1\n\n\nfilter2\n\n\n\ndescription\n\n\n\n\n\nFeb 20, 2024\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/inject1/index.html",
+    "href": "posts/inject1/index.html",
+    "title": "Inject 0",
+    "section": "",
+    "text": "Inject 1\nThis week Jeffrey has requested that I setup a modded Minecraft server accessible to the public for team building! He has added a twist, however, the server must be setup with Podman (an alt to Docker) and rootless at that!\nI’m not sure how doable this is, but we’ll give it a shot\n\nRequirement Steps\n\nSetup Podman\nMake Podman rootless\nSetup modded Minecraft container\nTest public connection\n\n\nwip"
   },
   {
     "objectID": "posts/quarto/index.html",
@@ -21,53 +28,11 @@
     "text": "Quarto is the static site generator used to render this site.\nIt’s documentation is very extensive, and worth reading.\nInteresting/Important bits:\nQuarto has a built in category system\nThis enables users to filter documents by types.\nTheming: https://quarto.org/docs/output-formats/html-themes.html\nAt the top right of this page, there is a toggle between light and dark theme. You can edit the _quarto.yml file to edit the themes used.\nPlugins/Extensions: https://quarto.org/docs/extensions/\nPlugins add functionality to quarto, like being able to embed QR Codes.\nWeb based slides: https://quarto.org/docs/presentations/revealjs/\nI used Reveal JS slides for the presentation\nUnder the hood, Quarto uses Pandoc and supports all of it’s features."
   },
   {
-    "objectID": "posts/markdown/index.html",
-    "href": "posts/markdown/index.html",
-    "title": "Markdown formatting",
+    "objectID": "posts/inject0/index.html",
+    "href": "posts/inject0/index.html",
+    "title": "Inject 1",
     "section": "",
-    "text": "Markdown is very simple, and many sites, like Reddit, Stackoverflow, or even Discord use some variation of markdown formatting.\nBelow is the Markdown from the presentation, copied and pasted here."
-  },
-  {
-    "objectID": "posts/markdown/index.html#markdown",
-    "href": "posts/markdown/index.html#markdown",
-    "title": "Markdown formatting",
-    "section": "Markdown",
-    "text": "Markdown\n\nMarkdown is markup language\nEnables users to render formatted documents from plaintext\nMost static site generators use markdown"
-  },
-  {
-    "objectID": "posts/markdown/index.html#markdown-code-snippets",
-    "href": "posts/markdown/index.html#markdown-code-snippets",
-    "title": "Markdown formatting",
-    "section": "Markdown Code Snippets",
-    "text": "Markdown Code Snippets\n\n`this is code snippets`\n\nThey result in unformated, monospace text:\n\nthis is code snippets"
-  },
-  {
-    "objectID": "posts/markdown/index.html#markdown-basics",
-    "href": "posts/markdown/index.html#markdown-basics",
-    "title": "Markdown formatting",
-    "section": "Markdown Basics",
-    "text": "Markdown Basics\n*italics* = italics\n**bold** = bold\n[linktext](example.com) = linktext"
-  },
-  {
-    "objectID": "posts/markdown/index.html#more-markdwon-basics",
-    "href": "posts/markdown/index.html#more-markdwon-basics",
-    "title": "Markdown formatting",
-    "section": "More Markdwon Basics",
-    "text": "More Markdwon Basics\n\n# top level header\n\ntop level header\n\n\n## lower level header\n\nlower level header"
-  },
-  {
-    "objectID": "posts/markdown/index.html#useful-html-in-markdown",
-    "href": "posts/markdown/index.html#useful-html-in-markdown",
-    "title": "Markdown formatting",
-    "section": "Useful HTML in Markdown",
-    "text": "Useful HTML in Markdown\n&lt;br&gt; = line break\n\n&lt;details&gt;&lt;summary&gt;summary text&lt;/summary&gt;\n\ncollapsable content\n\n&lt;/details&gt;\n\n\n\nsummary text\n\ncollapsable content"
-  },
-  {
-    "objectID": "posts/markdown/index.html#code-blocks",
-    "href": "posts/markdown/index.html#code-blocks",
-    "title": "Markdown formatting",
-    "section": "Code Blocks",
-    "text": "Code Blocks\nIt’s possible to do code blocks with langauge highlighting.\nThis:\n\\`\\`\\`{.python}\nprint(\"hellow world!\")\n\ndef testfunction(input):\n    print(\"Hi!\")\n\\`\\`\\`\nResults in:\nprint(\"hellow world!\")\n\ndef testfunction(input):\n    print(\"Hi!\")\nMany, many languages are supported and can be highlighted.\nImages:\n![alt text](https://quarto.org/quarto.png)\n\n\n\nalt text\n\n\nOf course, this is an external image. You an also store images in the repository, and then refer to them by the relative file path. Something like:\n![](../image.png)\nWhere .. goes up one directory, and then you can refer to files by their file path.\nMore information about markdown: https://quarto.org/docs/authoring/markdown-basics.html"
+    "text": "Inject 0\nI imported the .pfx directly to my pc by simply running it since chrome wasn’t accepting that type of cert file. Upon chrome relaunch, I select the Incus cert when loading the site anew and it worked.\nIncus seems nice albeit a little buggy, quite a few buttons get stuck on loading until you reload the page such as when stopping the server or"
   },
   {
     "objectID": "posts/qmd/index.html",
