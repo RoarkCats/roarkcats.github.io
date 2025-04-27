@@ -11,12 +11,12 @@
     "href": "posts/index.html",
     "title": "Posts",
     "section": "",
-    "text": "Inject 1\n\n\n\n\n\n\ninject\n\n\nincus\n\n\nexperiment\n\n\n\nIncus usage\n\n\n\n\n\nApr 26, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nInject 0\n\n\n\n\n\n\ninject\n\n\nminecraft\n\n\npodman\n\n\n\nPodman public modded minecraft server\n\n\n\n\n\nApr 26, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n.qmd and python jupyter blocks\n\n\n\n\n\n\nfilter1\n\n\nfilter2\n\n\n\ndescription\n\n\n\n\n\nFeb 20, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAbout Quarto\n\n\n\n\n\n\nfilter1\n\n\nfilter2\n\n\n\ndescription\n\n\n\n\n\nFeb 20, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "Inject 0\n\n\n\n\n\n\ninject\n\n\nincus\n\n\nexperiment\n\n\n\nIncus usage\n\n\n\n\n\nApr 26, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nInject 1\n\n\n\n\n\n\ninject\n\n\nminecraft\n\n\npodman\n\n\n\nPodman public modded minecraft server\n\n\n\n\n\nApr 26, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n.qmd and python jupyter blocks\n\n\n\n\n\n\nfilter1\n\n\nfilter2\n\n\n\ndescription\n\n\n\n\n\nFeb 20, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAbout Quarto\n\n\n\n\n\n\nfilter1\n\n\nfilter2\n\n\n\ndescription\n\n\n\n\n\nFeb 20, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/inject1/index.html",
     "href": "posts/inject1/index.html",
-    "title": "Inject 0",
+    "title": "Inject 1",
     "section": "",
     "text": "Inject 1\nThis week Jeffrey has requested that I setup a modded Minecraft server accessible to the public for team building! He has added a twist, however, the server must be setup with Podman (an alt to Docker) and rootless at that!\nI’m not sure how doable this is, but we’ll give it a shot\n\nRequirement Steps\n\nSetup Podman\nMake Podman rootless\nSetup modded Minecraft container\nTest public connection\n\n\nI chose Ubuntu 24 Noble because that’s what I use managing my own MC server so it’s what I’m more used to. I could have chosen something new but I wanted this to be a learning experience about Podman more so than an OS learning experience.\nUbuntu typically comes in 3 variants I noticed: default, cloud, desktop. Desktop should be obvious but I was wondering what the Cloud variant was about; apparently its the same as Default except that it’s installed and compatible with cloud-init which you can read more about here https://cloud-init.io.\nAfter creation, in the configuration tab I attached the network to public0 and changed the resource limits to allow for 8gb of ram and 4 cpu cores. This should be good for a solid Minecraft server especially if multithreading is used effectively. It should be ok to half these values though (or double!) Note: only works when VM is off, also another interface were it will never load when saved, just have to save and reload page\nwip"
   },
@@ -30,7 +30,7 @@
   {
     "objectID": "posts/inject0/index.html",
     "href": "posts/inject0/index.html",
-    "title": "Inject 1",
+    "title": "Inject 0",
     "section": "",
     "text": "Inject 0\nI imported the .pfx directly to my pc by simply running it since chrome wasn’t accepting that type of cert file. Upon chrome relaunch, I select the Incus cert when loading the site anew and it worked.\nIncus seems nice albeit a little buggy, quite a few buttons get stuck on loading until you reload the page such as when stopping the server or"
   },
