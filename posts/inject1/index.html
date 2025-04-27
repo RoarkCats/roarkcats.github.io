@@ -120,7 +120,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#inject-1" id="toc-inject-1" class="nav-link active" data-scroll-target="#inject-1">Inject 1</a></li>
+  <li><a href="#inject-1" id="toc-inject-1" class="nav-link active" data-scroll-target="#inject-1">Inject 1</a>
+  <ul class="collapse">
+  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#system-setup" id="toc-system-setup" class="nav-link" data-scroll-target="#system-setup">System Setup</a></li>
+  <li><a href="#podman" id="toc-podman" class="nav-link" data-scroll-target="#podman">Podman</a></li>
+  <li><a href="#minecraft" id="toc-minecraft" class="nav-link" data-scroll-target="#minecraft">Minecraft</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -164,10 +170,12 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="inject-1" class="level1">
 <h1>Inject 1</h1>
+<section id="intro" class="level3">
+<h3 class="anchored" data-anchor-id="intro">Intro</h3>
 <p>This week Jeffrey has requested that I setup a modded Minecraft server accessible to the public for team building! He has added a twist, however, the server must be setup with Podman (an alt to Docker) and rootless at that!</p>
 <p>I’m not sure how doable this is, but we’ll give it a shot</p>
 <ul>
-<li>Requirement Steps
+<li>Required Steps
 <ul>
 <li>Setup Podman</li>
 <li>Make Podman rootless</li>
@@ -175,12 +183,26 @@ ul.task-list li input[type="checkbox"] {
 <li>Test public connection</li>
 </ul></li>
 </ul>
+</section>
+<section id="system-setup" class="level3">
+<h3 class="anchored" data-anchor-id="system-setup">System Setup</h3>
 <p>I chose Ubuntu 24 Noble because that’s what I use managing my own MC server so it’s what I’m more used to. I could have chosen something new but I wanted this to be a learning experience about Podman more so than an OS learning experience.</p>
 <p>Ubuntu typically comes in 3 variants I noticed: <code>default</code>, <code>cloud</code>, <code>desktop</code>. Desktop should be obvious but I was wondering what the Cloud variant was about; apparently its the same as Default except that it’s installed and compatible with <code>cloud-init</code> which you can read more about here https://cloud-init.io.</p>
-<p>After creation, in the configuration tab I attached the network to <code>public0</code> and changed the resource limits to allow for 8gb of ram and 4 cpu cores. This should be good for a solid Minecraft server especially if multithreading is used effectively. It should be ok to half these values though (or double!) <strong>Note</strong>: only works when VM is off, also another interface were it will never load when saved, just have to save and reload page</p>
+<p>After creation, in the configuration tab I attached the network to <code>public0</code> and changed the resource limits to allow for 8gb of ram and 4 cpu cores. This should be good for a solid Minecraft server especially if multithreading is used effectively. It should be ok to half these values though (or double!)</p>
+<p><strong>Note</strong>: only works when VM is off, also interface never finishes loading when saved, just click save, wait a sec, and reload page</p>
+</section>
+<section id="podman" class="level3">
+<h3 class="anchored" data-anchor-id="podman">Podman</h3>
+<p>Guide I intend to follow: https://github.com/containers/podman/blob/main/docs/tutorials/rootless_tutorial.md</p>
+</section>
+<section id="minecraft" class="level3">
+<h3 class="anchored" data-anchor-id="minecraft">Minecraft</h3>
+<p>Guide I may follow: https://www.usebox.net/jjm/notes/minecraft-server-podman/</p>
+<p>Others I found which may help: http://blog.zencoffee.org/2019/10/minecraft-in-podman-a-better-setup/ https://julianhomelab.wordpress.com/2020/05/29/deploying-minecraft-servers-in-podman-docker/</p>
 <p><code>wip</code></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
