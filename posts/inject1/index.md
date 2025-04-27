@@ -30,4 +30,12 @@ After creation, in the configuration tab I attached the network to `public0` and
 
 ### Podman
 
+Guide I intend to follow: https://github.com/containers/podman/blob/main/docs/tutorials/rootless_tutorial.md
+
+### Minecraft
+
+Guide I may follow: https://www.usebox.net/jjm/notes/minecraft-server-podman/ 
+
+Others I found which may help: http://blog.zencoffee.org/2019/10/minecraft-in-podman-a-better-setup/ https://julianhomelab.wordpress.com/2020/05/29/deploying-minecraft-servers-in-podman-docker/
+
 `wip`
