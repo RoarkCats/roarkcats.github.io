@@ -2,7 +2,7 @@
 title: ".qmd and python jupyter blocks"
 date: 2024-2-20
 description: description
-categories: ['filter1', 'filter2']
+categories: []
 draft: false # Change to true to not render the post in on the website
 execute:
     freeze: false
