@@ -1,5 +1,5 @@
 ---
-title: Inject 0
+title: Inject 1
 date: 2025-4-26
 description: Podman public modded minecraft server
 categories: ['inject', 'minecraft', 'podman']
