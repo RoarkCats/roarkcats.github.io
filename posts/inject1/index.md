@@ -16,5 +16,11 @@ I'm not sure how doable this is, but we'll give it a shot
     - Make Podman rootless
     - Setup modded Minecraft container
     - Test public connection
-    
+
+I chose Ubuntu 24 Noble because that's what I use managing my own MC server so it's what I'm more used to. I could have chosen something new but I wanted this to be a learning experience about Podman more so than an OS learning experience.
+
+Ubuntu typically comes in 3 variants I noticed: `default`, `cloud`, `desktop`. Desktop should be obvious but I was wondering what the Cloud variant was about; apparently its the same as Default except that it's installed and compatible with `cloud-init` which you can read more about here https://cloud-init.io. 
+
+After creation, in the configuration tab I attached the network to `public0` and changed the resource limits to allow for 8gb of ram and 4 cpu cores. This should be good for a solid Minecraft server especially if multithreading is used effectively. It should be ok to half these values though (or double!) **Note**: only works when VM is off, also another interface were it will never load when saved, just have to save and reload page
+
 `wip`
