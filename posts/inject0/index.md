@@ -1,5 +1,5 @@
 ---
-title: Inject 0
+title: Inject 0 - Incus
 date: 2025-4-26
 description: Incus usage
 categories: ['inject', 'incus', 'experiment']

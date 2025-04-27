@@ -1,7 +1,7 @@
 ---
-title: Inject 1
+title: Inject 1 - Podman MC
 date: 2025-4-26
-description: Podman public modded minecraft server
+description: Podman rootless public modded minecraft server
 categories: ['inject', 'minecraft', 'podman']
 draft: false # Change to true to not render the post in on the website
 ---
