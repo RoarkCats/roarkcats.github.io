@@ -38,7 +38,8 @@ Podman containers may not survive a reboot, so you must create a service
 Guide I intended to follow (verbose): https://github.com/containers/podman/blob/main/docs/tutorials/rootless_tutorial.md
 Guide I actually followed (well explained): https://youtu.be/69dADRzXpqk
 
-Commands run: ```bash
+Commands run: 
+```bash
 # Ubuntu 20.10 and newer
 apt-get update
 apt-get -y install podman
@@ -63,7 +64,8 @@ systemctl start podman-compose.service
 # dont forget to address privileged port range if your user id 
 ```
 
-`podman-compose.service`: ```
+`podman-compose.service`: 
+```
 [Unit]
 Description=Podman-compose
 Wants=network-online.target
@@ -82,7 +84,8 @@ ExecStop=/usr/bin/podman-compose stop
 WantedBy=default.target
 ```
 
-Podman side demo: ```bash
+Podman side demo: 
+```bash
 podman run -d -p 8080:80/tcp --name webserver docker.io/library/httpd
 #   in bkg, ports, (ext:int ports), name, (name), container image
 # test cmd running site on 8080 public, just went to ip:8080 and "It works!"
@@ -97,7 +100,8 @@ podman-compose up -d
 #            run, in bkg
 ```
 
-`compose.yaml`: ```yaml
+`compose.yaml`: 
+```yaml
 version: '3'
 
 services:
