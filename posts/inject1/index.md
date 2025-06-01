@@ -115,8 +115,42 @@ services:
 
 ### Minecraft
 
-Guide I may follow: https://www.usebox.net/jjm/notes/minecraft-server-podman/ 
+I found this compose setup online and modified it a bit to my needs, the [docker image](https://hub.docker.com/r/itzg/minecraft-server) does have its own [documentation](https://docker-minecraft-server.readthedocs.io/en/latest/) though on its use
 
-Others I found which may help: http://blog.zencoffee.org/2019/10/minecraft-in-podman-a-better-setup/ https://julianhomelab.wordpress.com/2020/05/29/deploying-minecraft-servers-in-podman-docker/
+`compose.yaml`:
+```yaml
+services:
+    minecraft-server:
+        image: docker.io/itzg/minecraft-server
+        container_name: minecraft
+        restart: unless-stopped
+        userns_mode: keep-id
+        stdin_open: true
+        tty: true
+        ports:
+            - "25565:25565"
+        environment:
+            SERVER_NAME: "Podcraft"
+            MOTD: "Testing..."
+            EULA: "TRUE"
+            TYPE: NEOFORGE
+            VERSION: "1.20.1"
+            NEOFORGE_VERSION: "latest"
+            MAX_MEMORY: 8G
+            VIEW_DISTANCE: 16
+            MAX_PLAYERS: 16
+            SERVER_PORT: 25565
+        volumes:
+            - /home/podmanuser/neoforge/data:/data
+```
 
-`wip`
+Commands run:
+```bash
+su podmanuser
+cd
+nano compose.yaml
+podman-compose up -d
+podman-compose ps # check status
+```
+
+While this all does work, it seems I'll need to spend a little more time on the service setup part as it seems not to work with the previous simple test setup
