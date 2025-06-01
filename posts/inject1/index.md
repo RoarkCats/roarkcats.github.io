@@ -1,7 +1,7 @@
 ---
 title: Inject 1 - Podman MC
 date: 2025-4-26
-description: Podman rootless public modded minecraft server
+description: Podman rootless public modded Minecraft server
 categories: ['inject', 'minecraft', 'podman']
 draft: false # Change to true to not render the post in on the website
 ---
@@ -33,7 +33,7 @@ By default Podman is built to be rootless, or rather built to run from the user 
 
 One major downside to running rootless is the lack of access to privileged ports below 1024 (can't sue default 80 for a website)
 
-Podman containers may not survive a reboot, so you must create a service
+Podman containers may not survive a reboot, so you must create a service for it or otherwise automate its startup with scripts or other
 
 Guide I intended to follow (verbose): https://github.com/containers/podman/blob/main/docs/tutorials/rootless_tutorial.md
 Guide I actually followed (well explained): https://youtu.be/69dADRzXpqk
