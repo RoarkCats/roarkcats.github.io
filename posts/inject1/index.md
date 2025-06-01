@@ -29,8 +29,85 @@ After creation, in the configuration tab I attached the network to `public0` and
 **Note**: only works when VM is off, also interface never finishes loading when saved, just click save, wait a sec, and reload page
 
 ### Podman
+By default Podman is built to be rootless, or rather built to run from the user that started its containers, so out of the box iut will be 'rootless' as long as you don't run it from root or [have multiple existing users which may conflict](https://opensource.com/article/19/2/how-does-rootless-podman-work)
 
-Guide I intend to follow: https://github.com/containers/podman/blob/main/docs/tutorials/rootless_tutorial.md
+One major downside to running rootless is the lack of access to privileged ports below 1024 (can't sue default 80 for a website)
+
+Podman containers may not survive a reboot, so you must create a service
+
+Guide I intended to follow (verbose): https://github.com/containers/podman/blob/main/docs/tutorials/rootless_tutorial.md
+Guide I actually followed (well explained): https://youtu.be/69dADRzXpqk
+
+Commands run: ```bash
+# Ubuntu 20.10 and newer
+apt-get update
+apt-get -y install podman
+apt-get -y install podman-compose
+apt-get -y install passt # was already installed
+apt-get -y install nano # if not installed
+# pasta should be selected in podman by default so no need to change settings
+reboot now
+# avoids potential errors
+# Now to make a service that will restart when your system does
+useradd -m -s /bin/bash podmanuser
+#  home folder, shell (bash), (username)
+passwd podmanuser # optional
+su podmanuser # not optional!
+cd # goto home dir
+nano compose.yaml # your stuff
+exit # return to root
+nano /lib/systemd/system/podman-compose.service
+systemctl --system daemon-reload
+systemctl enable podman-compose.service
+systemctl start podman-compose.service
+# dont forget to address privileged port range if your user id 
+```
+
+`podman-compose.service`: ```
+[Unit]
+Description=Podman-compose
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=podmanuser
+Group=podmanuser
+Type=oneshot
+RemainAfterExit=true
+ExecStartPre=
+ExecStart=/usr/bin/podman-compose -f /home/podmanuser/compose.yaml up -d
+ExecStop=/usr/bin/podman-compose stop
+
+[Install]
+WantedBy=default.target
+```
+
+Podman side demo: ```bash
+podman run -d -p 8080:80/tcp --name webserver docker.io/library/httpd
+#   in bkg, ports, (ext:int ports), name, (name), container image
+# test cmd running site on 8080 public, just went to ip:8080 and "It works!"
+podman ps -a
+# list all containers
+podman stop webserver
+podman rm webserver
+# but now lets remove it
+# for compose same thing:
+nano compose.yaml # your stuff
+podman-compose up -d
+#            run, in bkg
+```
+
+`compose.yaml`: ```yaml
+version: '3'
+
+services:
+  webserver:
+    image: docker.io/library/httpd
+    container_name: webserver
+    ports:
+      - '8080:80'
+    restart: unless-stopped
+```
 
 ### Minecraft
 
