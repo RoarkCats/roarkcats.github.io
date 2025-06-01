@@ -65,7 +65,7 @@ systemctl start podman-compose.service
 ```
 
 `podman-compose.service`: 
-```
+```ini
 [Unit]
 Description=Podman-compose
 Wants=network-online.target
