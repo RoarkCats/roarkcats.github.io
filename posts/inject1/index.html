@@ -464,9 +464,38 @@ WantedBy=default.target</code></pre>
 </section>
 <section id="minecraft" class="level3">
 <h3 class="anchored" data-anchor-id="minecraft">Minecraft</h3>
-<p>Guide I may follow: https://www.usebox.net/jjm/notes/minecraft-server-podman/</p>
-<p>Others I found which may help: http://blog.zencoffee.org/2019/10/minecraft-in-podman-a-better-setup/ https://julianhomelab.wordpress.com/2020/05/29/deploying-minecraft-servers-in-podman-docker/</p>
-<p><code>wip</code></p>
+<p>I found this compose setup online and modified it a bit to my needs, the <a href="https://hub.docker.com/r/itzg/minecraft-server">docker image</a> does have its own <a href="https://docker-minecraft-server.readthedocs.io/en/latest/">documentation</a> though on its use</p>
+<p><code>compose.yaml</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">services</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">minecraft-server</span><span class="kw">:</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">image</span><span class="kw">:</span><span class="at"> docker.io/itzg/minecraft-server</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">container_name</span><span class="kw">:</span><span class="at"> minecraft</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">restart</span><span class="kw">:</span><span class="at"> unless-stopped</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">userns_mode</span><span class="kw">:</span><span class="at"> keep-id</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">stdin_open</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">tty</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">ports</span><span class="kw">:</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="kw">-</span><span class="at"> </span><span class="st">"25565:25565"</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">environment</span><span class="kw">:</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">SERVER_NAME</span><span class="kw">:</span><span class="at"> </span><span class="st">"Podcraft"</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">MOTD</span><span class="kw">:</span><span class="at"> </span><span class="st">"Testing..."</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">EULA</span><span class="kw">:</span><span class="at"> </span><span class="st">"TRUE"</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">TYPE</span><span class="kw">:</span><span class="at"> NEOFORGE</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">VERSION</span><span class="kw">:</span><span class="at"> </span><span class="st">"1.20.1"</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">NEOFORGE_VERSION</span><span class="kw">:</span><span class="at"> </span><span class="st">"latest"</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">MAX_MEMORY</span><span class="kw">:</span><span class="at"> 8G</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">VIEW_DISTANCE</span><span class="kw">:</span><span class="at"> </span><span class="dv">16</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">MAX_PLAYERS</span><span class="kw">:</span><span class="at"> </span><span class="dv">16</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">SERVER_PORT</span><span class="kw">:</span><span class="at"> </span><span class="dv">25565</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">volumes</span><span class="kw">:</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="kw">-</span><span class="at"> /home/podmanuser/neoforge/data:/data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Commands run:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">su</span> podmanuser</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> compose.yaml</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">podman-compose</span> up <span class="at">-d</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">podman-compose</span> ps <span class="co"># check status</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>While this all does work, it seems I’ll need to spend a little more time on the service setup part as it seems not to work with the previous simple test setup</p>
 
 
 </section>
