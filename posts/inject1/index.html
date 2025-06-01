@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2025-04-26">
-<meta name="description" content="Podman rootless public modded minecraft server">
+<meta name="description" content="Podman rootless public modded Minecraft server">
 
 <title>Inject 1 - Podman MC – Crakt</title>
 <style>
@@ -346,7 +346,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    Podman rootless public modded minecraft server
+    Podman rootless public modded Minecraft server
   </div>
 </div>
 
@@ -396,7 +396,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="podman">Podman</h3>
 <p>By default Podman is built to be rootless, or rather built to run from the user that started its containers, so out of the box iut will be ‘rootless’ as long as you don’t run it from root or <a href="https://opensource.com/article/19/2/how-does-rootless-podman-work">have multiple existing users which may conflict</a></p>
 <p>One major downside to running rootless is the lack of access to privileged ports below 1024 (can’t sue default 80 for a website)</p>
-<p>Podman containers may not survive a reboot, so you must create a service</p>
+<p>Podman containers may not survive a reboot, so you must create a service for it or otherwise automate its startup with scripts or other</p>
 <p>Guide I intended to follow (verbose): https://github.com/containers/podman/blob/main/docs/tutorials/rootless_tutorial.md Guide I actually followed (well explained): https://youtu.be/69dADRzXpqk</p>
 <p>Commands run:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ubuntu 20.10 and newer</span></span>
