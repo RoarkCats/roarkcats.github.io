@@ -81,7 +81,7 @@ ExecStart=/usr/bin/podman-compose -f /home/podmanuser/compose.yaml up -d
 ExecStop=/usr/bin/podman-compose stop
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target
 ```
 
 Podman side demo: 
@@ -151,6 +151,8 @@ cd
 nano compose.yaml
 podman-compose up -d
 podman-compose ps # check status
+exit
+loginctl enable-linger podmanuser # allow systemd to use the user automatically even when the user isn't logged in
 ```
 
 While this all does work, it seems I'll need to spend a little more time on the service setup part as it seems not to work with the previous simple test setup
