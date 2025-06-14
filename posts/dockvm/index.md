@@ -1,6 +1,6 @@
 ---
 title: Docker VMs & Bind Mounting
-date: 2025-5-14
+date: 2025-6-14
 description: Using Docker containers as VMs to access external files via bind mounting
 categories: ['docker', 'containers', 'mounting', 'experiment']
 draft: false # Change to true to not render the post in on the website
