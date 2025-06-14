@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-02-20">
-<meta name="description" content="description">
+<meta name="dcterms.date" content="2025-05-14">
+<meta name="description" content="Using Docker containers as VMs to access external files via bind mounting">
 
-<title>.qmd and python jupyter blocks – Crakt</title>
+<title>Docker VMs &amp; Bind Mounting – Crakt</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -315,15 +315,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#what-are-qmd-files" id="toc-what-are-qmd-files" class="nav-link active" data-scroll-target="#what-are-qmd-files">What are qmd files?</a></li>
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -331,12 +324,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">.qmd and python jupyter blocks</h1>
-</div>
+<h1 class="title">Docker VMs &amp; Bind Mounting</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">docker</div>
+    <div class="quarto-category">containers</div>
+    <div class="quarto-category">mounting</div>
+    <div class="quarto-category">experiment</div>
+  </div>
+  </div>
 
 <div>
   <div class="description">
-    description
+    Using Docker containers as VMs to access external files via bind mounting
   </div>
 </div>
 
@@ -347,7 +346,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 20, 2024</p>
+      <p class="date">May 14, 2025</p>
     </div>
   </div>
   
@@ -359,92 +358,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="what-are-qmd-files" class="level1">
-<h1>What are qmd files?</h1>
-<p><code>.qmd</code> files are files special to quarto. The short version of it is that quarto renders these files, which are essentially markdown files, to jupyter notebooks, where it then executes and renders any python code.</p>
-</section>
-<section id="examples" class="level1">
-<h1>Examples</h1>
-<div id="577f4805" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello World!"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">3</span> <span class="op">+</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Hello World!
-5</code></pre>
-</div>
-</div>
-<p>Quarto is designed for data science, and this means having executable code blocks that do something. For example, <a href="https://quarto.org/docs/computations/python.html">Quarto can use matplotlib in python to plot things</a>.</p>
-<p>Where things get interesting is the combination of three factors:</p>
-<ul>
-<li>The output of these code blocks can be done as plain text, rather than a code block, by putting <code>#| output: asis</code> at the beginning of the code block.</li>
-<li>The plain text output by these code blocks, is done <em>before</em> the markdown is rendered to other formats.</li>
-<li>It’s possible to hide the code blocks but not the output, by putting <code>#| echo: false</code> at the beginning of the code block itself</li>
-</ul>
-<p>What this means, is that python can essentially act as a formatting engine, for generating dynamic content. Even things like using.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: asis</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_bullets(<span class="bu">list</span>):</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  bulletlist <span class="op">=</span> <span class="ss">f''''''</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">list</span>:</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    bulletlist <span class="op">=</span> bulletlist <span class="op">+</span> <span class="st">"* "</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    bulletlist <span class="op">=</span> bulletlist <span class="op">+</span> i</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    bulletlist <span class="op">=</span> bulletlist <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(bulletlist)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>sample_list <span class="op">=</span> [</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Item 1"</span>,</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Item 2"</span>,</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Item 3"</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>make_bullets(sample_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Which renders to:</p>
-<ul>
-<li>Item 1</li>
-<li>Item 2</li>
-<li>Item 3</li>
-</ul>
-<p>It should be noted that I am actually using two code blocks here, one which does not execute, and does not hide itself, and another which executes and hides itself.</p>
-<p>You can get even more dynamic content, if you use something like python requests to pull it as you render the site. Again, it is a bit hacky since backticks would render into a code block, so here I multiply one backticks times 3 to get a string containing 3 backticks, but it does work.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: asis</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>backticks <span class="op">=</span> <span class="st">"`"</span> <span class="op">*</span> <span class="dv">3</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'''</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="sc">{</span>backticks<span class="sc">}</span><span class="ch">{{</span><span class="ss">.nix .code-overflow-wrap filename=home.nix</span><span class="ch">}}</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="sc">{</span>requests<span class="sc">.</span>get(<span class="st">'https://raw.githubusercontent.com/ErikMcClure/bad-licenses/3c26bef3028fa8470308c493af7d7eae152a19ba/overwatch'</span>)<span class="sc">.</span>text<span class="sc">}</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="sc">{</span>backticks<span class="sc">}</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="ss">'''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>home.nix</strong></pre>
-</div>
-<div class="sourceCode" id="cb5" data-filename="home.nix"><pre class="sourceCode nix code-overflow-wrap code-with-copy"><code class="sourceCode nix"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>                     Overwatch License Revision <span class="dv">2</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                          <span class="op">(</span>c<span class="op">)</span> Author, year</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>Permission is hereby granted, free of charge, for anyone to use, distribute, <span class="kw">or</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>sell the compiled binaries, source code, <span class="kw">and</span> documentation <span class="op">(</span>the <span class="st">"Software"</span><span class="op">)</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>without attribution<span class="op">.</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>Permission to modify the Software is only granted to those that have a higher</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>competitive matchmaking rank than the copyright holder in Overwatch <span class="dv">2</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>Blizzard, <span class="dv">2022</span><span class="op">).</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>The Software is provided in the hope that some will find it useful, but the</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>Software comes under NO WARRANTY, EXPRESS OR IMPLIED, <span class="kw">and</span> the authors of the</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>Software are NOT LIABLE IN THE EVENT OF LOSSES, DAMAGES OR MISUSE relating to</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>the Software<span class="op">.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>guides (note they dont have ‘.’ after build which is needed?) https://danielmangum.com/posts/simple-linux-command-line-using-docker/ https://flaviocopes.com/docker-access-files-outside-container/</p>
+<p>example <code>Dockerfile</code> (no extension):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode dockerfile code-with-copy"><code class="sourceCode dockerfile"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> ubuntu:latest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>cmds from within the folder:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> build . <span class="at">-t</span> dockvm</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-t</span> <span class="at">-d</span> <span class="at">--name</span> my_dvm <span class="at">-v</span> //c/Users/Roark/external_dir:/internal_dir dockvm</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> ps</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> exec <span class="at">-i</span> <span class="at">-t</span> my_dvm /bin/bash</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> kill my_dvm</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> rm my_dvm</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> ps <span class="at">-a</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> start my_dvm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>so build sets up the <code>Dockerfile</code>, run creates a new container running in the bkg <code>-d</code> with a unique <code>--name</code> that has access <code>-v</code> to an external directory internally under an alias, <code>ps</code> lists the containers to show it running (or not), and <code>exec</code> connects you to the terminal of the container ‘vm’, <code>kill</code> stops it immediately and <code>rm</code> removes to so that the <code>--name</code> doesnt overlap next time, can verify its gone by checking <code>ps -a</code> to list all containers, can also just use <code>start</code> next time instead of <code>run</code> so you wont have to remove it but you won’t be able to change the dir</p>
+<p>side note docker build not really nec here, docker compose or pull should be fine for this</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
