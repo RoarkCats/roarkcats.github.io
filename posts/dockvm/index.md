@@ -7,8 +7,8 @@ draft: false # Change to true to not render the post in on the website
 ---
 
 guides (note they dont have '.' after build which is needed?)
-https://danielmangum.com/posts/simple-linux-command-line-using-docker/
-https://flaviocopes.com/docker-access-files-outside-container/
+- https://danielmangum.com/posts/simple-linux-command-line-using-docker/ 
+- https://flaviocopes.com/docker-access-files-outside-container/ 
 
 example `Dockerfile` (no extension):
 
