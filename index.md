@@ -10,7 +10,7 @@ title: "Home"
 ### My Things You Won't Find Here
 but should definitely check out!
 
-- 🐈‍ [GitHub Repos](https://github.com/RoarkCats/repositories) (new!)
+- 🐈‍ [GitHub Repos](https://github.com/RoarkCats?tab=repositories) (new!)
 - 🦴 [ZipCode Datapacks & Community](http://discord.gg/FfkrUPf) (♡)
 - ⚙️ [Modrinth Datapacks](https://modrinth.com/user/RoarkCats) (wip!)
 - 🔥 [CurseForge Projects](https://www.curseforge.com/members/roarkcats/projects) (modpacks!)
