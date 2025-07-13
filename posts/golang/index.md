@@ -26,6 +26,8 @@ Go at first seems like a language mix of Py and JS, however, after coding in it 
 
 I found it interesting, and slightly bothersome, how (by default) the official VSCode extension formats your program every time you save. Pretty sure this can be configured
 
-It may be noted that running/programming Go appears to make antivirus programs freak out each time, never had any problems but it was kinda annoying, does make sense as Go is a compiled language that is often used by attackers apparently. Anyhow I added my Go folder to Norton's exception list to get rid of the hassle. (Yes yes norton bad xD)
+It may be noted that running/programming Go appears to make antivirus programs freak out each time its run/saved(?), never had any problems but it was kinda annoying, does make sense as Go is a compiled language that is often used by attackers apparently. Anyhow I added my Go folder to Norton's exception list to get rid of the hassle. (Yes yes norton bad xD)
+
+I like how easy it is to compile Go into an exe/other binary for portability and ease of use! Also how fast it is :>
 
 You can view my first testing script [here](https://github.com/RoarkCats/roarkcats.github.io/blob/main/posts/golang/main.go) on GitHub
