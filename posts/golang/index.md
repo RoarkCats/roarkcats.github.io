@@ -28,4 +28,4 @@ I found it interesting, and slightly bothersome, how (by default) the official V
 
 It may be noted that running/programming Go appears to make antivirus programs freak out each time, never had any problems but it was kinda annoying, does make sense as Go is a compiled language that is often used by attackers apparently. Anyhow I added my Go folder to Norton's exception list to get rid of the hassle. (Yes yes norton bad xD)
 
-You can view my first testing script ![here](https://github.com/RoarkCats/roarkcats.github.io/blob/main/posts/golang/main.go) on GitHub
+You can view my first testing script [here](https://github.com/RoarkCats/roarkcats.github.io/blob/main/posts/golang/main.go) on GitHub
