@@ -11,7 +11,7 @@
     "href": "posts/golang/index.html",
     "title": "Golang Intro",
     "section": "",
-    "text": "Setup\n\nDownloaded & installed Go from go.dev\nInstalled VSCode extension\n\n[Go VSCode Extension](./govscode.png)\n\nCreated standard workspace folder path ../&lt;user&gt;/go/src/&lt;projects&gt; for my modules\nCreated an example module ../example/ with a main.go file\n\nDon’t think the file has tobe called “main”, but if it runs, there must be a file within the module that starts with package main on the first line"
+    "text": "Setup\n\nDownloaded & installed Go from go.dev\nInstalled VSCode extension\n\n\n\nCreated standard workspace folder path ../&lt;user&gt;/go/src/&lt;projects&gt; for my modules\nCreated an example module ../example/ with a main.go file\n\nDon’t think the file has to be called ‘main’, but if it runs, there must be a file within the module that starts with package main on the first line (you also put that in main.go ofc)\n\n\n\n\nGuides & Docs\nThe docs for Go are good, but these helped me more personally\n\nLearn Go in 12 Minutes\nGo by Example\nGo Packages"
   },
   {
     "objectID": "posts/dockvm/index.html",
