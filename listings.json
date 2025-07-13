@@ -2,6 +2,7 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/golang/index.html",
       "/posts/dockvm/index.html",
       "/posts/inject1/index.html",
       "/posts/inject0/index.html",
