@@ -20,3 +20,12 @@ The docs for Go are good, but these helped me more personally
 - [Learn Go in 12 Minutes](https://www.youtube.com/watch?v=C8LgvuEBraI)
 - [Go by Example](https://gobyexample.com/)
 - [Go Packages](https://pkg.go.dev)
+
+### Notes
+Go at first seems like a language mix of Py and JS, however, after coding in it for a bit, I might throw C into the mix as it does feel like a lower level language with how it makes you code ad think in certain ways. While it does contain a lot of modern/high level niceties, it's still quite a simple language, ex arrays pretty much only have `append`, `len`, and `range` (+`sort`/`reverse` for slices)
+
+I found it interesting, and slightly bothersome, how (by default) the official VSCode extension formats your program every time you save. Pretty sure this can be configured
+
+It may be noted that running/programming Go appears to make antivirus programs freak out each time, never had any problems but it was kinda annoying, does make sense as Go is a compiled language that is often used by attackers apparently. Anyhow I added my Go folder to Norton's exception list to get rid of the hassle. (Yes yes norton bad xD)
+
+You can view my first testing script ![here](https://github.com/RoarkCats/roarkcats.github.io/blob/main/posts/golang/main.go) on GitHub
